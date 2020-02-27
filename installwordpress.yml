@@ -12,17 +12,17 @@
         apt_repository:
           repo: 'ppa:ondrej/php'
 
-        - name: Install PHP
+      - name: Install PHP
           package:
             name: '{{ item }}'
             state: present
-          loop:
+        loop:
             - php
             - php-fpm
             - php-mysql
             - php-xml
 
-        - name: Remove apache2
-          package:
+      - name: Remove apache2
+        package:
             name: apache2
             state: absent
