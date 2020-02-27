@@ -74,3 +74,18 @@
         template:
           src: templates/mysql/my.cnf.j2
           dest: /root/.my.cnf
+
+      - name: Install nginx
+        package:
+          name: nginx
+          state: present
+
+      - name: Start nginx
+        service:
+          name: nginx
+          state: started
+
+      - name: Create nginx config
+        template:
+          src: templates/nginx/default.j2
+          dest: /etc/nginx/sites-available/default
