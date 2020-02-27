@@ -39,7 +39,7 @@
       - name: Generate new root password
         command: openssl rand -hex 7
         args:
-          creates: /roof/.my.cnf
+          creates: /root/.my.cnf
           register: mysql_new_root_pass
 
       - name: Remove anonymous user
