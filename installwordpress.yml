@@ -143,11 +143,11 @@
           when: db_exist.rc > 0
 
         - name: Import WordPress DB
-         mysql_db:
-           target: /tmp/wp-database.sql
-           state: import
-           name: wordpress
-         when: db_exist.rc > 0
+          mysql_db:
+            target: /tmp/wp-database.sql
+            state: import
+            name: wordpress
+          when: db_exist.rc > 0
 
 
       handlers:
