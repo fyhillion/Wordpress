@@ -102,18 +102,6 @@
             dest: /etc/nginx/sites-available/default
           notify: restart nginx
 
-      handlers:
-        - name: restart nginx
-          service:
-            name: nginx
-            state: restarted
-
-      handlers:
-        - name: restart mysql
-          service:
-            name: mysql
-            state: restarted
-
 # WordPress
         - name: Unzip WordPress
           unarchive:
@@ -140,3 +128,15 @@
             host: localhost
             password: bananas
             priv: wordpress.*:ALL
+
+      handlers:
+        - name: restart nginx
+          service:
+            name: nginx
+            state: restarted
+
+      handlers:
+        - name: restart mysql
+          service:
+            name: mysql
+            state: restarted
