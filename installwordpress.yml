@@ -129,18 +129,6 @@
             password: bananas
             priv: wordpress.*:ALL
 
-      handlers:
-        - name: restart nginx
-          service:
-            name: nginx
-            state: restarted
-
-      handlers:
-        - name: restart mysql
-          service:
-            name: mysql
-            state: restarted
-
         - name: Create wp-config
           template:
             src: templates/wordpress/wp-config.php.jinja
@@ -162,4 +150,16 @@
              target: /tmp/wp-database.sql
              state: import
              name: wordpress
-          when: db_exist.rc > 0            
+          when: db_exist.rc > 0
+
+      handlers:
+        - name: restart nginx
+          service:
+            name: nginx
+            state: restarted
+
+      handlers:
+        - name: restart mysql
+          service:
+            name: mysql
+            state: restarted
